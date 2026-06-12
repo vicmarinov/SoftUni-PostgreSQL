@@ -3,7 +3,7 @@ CREATE PROCEDURE sp_transfer_money (
     receiver_id INT,
     money_amount NUMERIC(4)
 )
-    LANGUAGE plpgsql
+LANGUAGE plpgsql
 AS
 $$
 DECLARE

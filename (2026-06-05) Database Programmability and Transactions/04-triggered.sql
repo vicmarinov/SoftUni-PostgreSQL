@@ -8,30 +8,30 @@ CREATE TABLE deleted_employees (
     salary NUMERIC(19, 4)
 );
 
-CREATE OR REPLACE FUNCTION fn_backup_deleted_employees()
+CREATE OR REPLACE FUNCTION fn_backup_deleted_employees ()
 RETURNS TRIGGER
 LANGUAGE plpgsql
 AS
 $$
-    BEGIN
-        INSERT INTO deleted_employees(
-            first_name,
-            last_name,
-            middle_name,
-            job_title,
-            department_id,
-            salary
-        ) VALUES (
-            OLD.first_name,
-            OLD.last_name,
-            OLD.middle_name,
-            OLD.job_title,
-            OLD.department_id,
-            OLD.salary
-        );
+BEGIN
+    INSERT INTO deleted_employees(
+        first_name,
+        last_name,
+        middle_name,
+        job_title,
+        department_id,
+        salary
+    ) VALUES (
+        OLD.first_name,
+        OLD.last_name,
+        OLD.middle_name,
+        OLD.job_title,
+        OLD.department_id,
+        OLD.salary
+    );
 
-        RETURN NULL;
-    END;
+    RETURN NULL;
+END;
 $$;
 
 CREATE OR REPLACE TRIGGER backup_deleted_employees

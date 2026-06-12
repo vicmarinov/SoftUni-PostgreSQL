@@ -2,7 +2,7 @@ CREATE OR REPLACE PROCEDURE sp_withdraw_money (
     account_id INT,
     money_amount NUMERIC(4)
 )
-    LANGUAGE plpgsql
+LANGUAGE plpgsql
 AS
 $$
 DECLARE
